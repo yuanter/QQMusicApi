@@ -52,8 +52,7 @@ const user = {
 	  }
     };
     const result = await request(requestData)
-	console.log(JSON.stringify(requestData));
-	console.log(result);
+	console.log(requestData);
 	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
       const musicKey = result.WXLoginByToken.data.musickey;
