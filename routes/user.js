@@ -27,7 +27,12 @@ const user = {
         "WXLoginByToken": {
             "method": "QQLogin",
             "module": "music.login.LoginServer",
-            "param": JSON.stringify(param)
+            "param": {
+				"musicid": uin,
+				"musickey": qqmusic_key || qm_keyst,
+				"openid" : "",
+				"refresh_token" : psrf_qqrefresh_token
+			}
         },
         "comm": {
             "guid" : guid,
