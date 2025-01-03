@@ -44,8 +44,8 @@ module.exports = (req, res, {globalCookie} = {}) => {
 
       const cookieObj = (Number(req.query.ownCookie) ? req.cookies : userCookie) || {};
       obj.headers = obj.headers || {};
-      obj.xsrfCookieName = 'XSRF-TOKEN';
-      obj.withCredentials = true;
+      //obj.xsrfCookieName = 'XSRF-TOKEN';
+      //obj.withCredentials = true;
       obj.headers.Cookie = Object.keys(cookieObj).map((k) => `${k}=${encodeURI(cookieObj[k])}`).join('; ');
 
       const response = await axios(obj);
