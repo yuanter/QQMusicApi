@@ -10,7 +10,7 @@ const user = {
   },
 
   '/refresh': async ({req, res, request}) => {
-    const {uin, qm_keyst, qqmusic_key, guid, refresh_key} = req.cookies
+    const {uin, qm_keyst, qqmusic_key, guid, psrf_qqrefresh_token} = req.cookies
     if (!uin || !(qm_keyst || qqmusic_key)) {
       return res.send({
         result: 301,
@@ -19,13 +19,13 @@ const user = {
     }
     const data = {
         WXLoginByToken: {
-            method: "Login",
+            method: "QQLogin",
             module: "music.login.LoginServer",
             param: {
                 musicid: uin,
                 musickey: qqmusic_key || qm_keyst,
                 openid : "",
-                refresh_token : refresh_key
+                refresh_token : psrf_qqrefresh_token
             }
         },
         comm: {
