@@ -37,14 +37,16 @@ const user = {
     //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
     //  JSON.stringify(data)
     //)}`;
-	let url = `https://u.y.qq.com/cgi-bin/musicu.fcg`;
+	let url = `https://u.y.qq.com/cgi-bin/musicu.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
+      JSON.stringify(data)
+    )}`;
 
     const result = await request({
       url: url,
       data: data,
 	  method:`POST`,
 	  headers: {
-		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin}`
+		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
     })
 
