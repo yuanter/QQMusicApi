@@ -37,28 +37,41 @@ const user = {
     //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
     //  JSON.stringify(data)
     //)}`;
-	let url = `https://u.y.qq.com/cgi-bin/musicu.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
-      JSON.stringify(data)
-    )}`;
+	let url = `https://u.y.qq.com/cgi-bin/musicu.fcg`;
 
     const result = await request({
       url: url,
-      data: data,
+      data: {
+			WXLoginByToken: {
+				method: "QQLogin",
+				module: "music.login.LoginServer",
+				param: {
+					musicid: uin,
+					musickey: qqmusic_key || qm_keyst,
+					openid : "",
+					refresh_token : psrf_qqrefresh_token
+				}
+			},
+			comm: {
+				guid : guid,
+				tmeLoginType: 1
+			}
+		},
 	  method: 'post',
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
     })
 
-    if (result.req1 && result.req1.data && result.req1.data.musickey) {
-      const musicKey = result.req1.data.musickey;
+    if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
+      const musicKey = result.WXLoginByToken.data.musickey;
       ['qm_keyst', 'qqmusic_key'].forEach((k) => {
         res.cookie(k, musicKey, {expires: new Date(Date.now() + 86400000)})
       })
       return res.send({
         result: 100,
         data: {
-          musickey: result.req1.data.musickey,
+          musickey: result.WXLoginByToken.data.musickey,
         }
       });
     }
