@@ -48,6 +48,7 @@ const user = {
 	  method: 'POST',
       data: data,
 	  headers: {
+		'Content-Type': 'application/json',
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
     };
