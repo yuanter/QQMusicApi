@@ -1221,7 +1221,7 @@ domhandler@^2.3.0:
 
 dompurify@^2.2.6:
   version "2.3.1"
-  resolved "https://registry.nlark.com/dompurify/download/dompurify-2.3.1.tgz#a47059ca21fd1212d3c8f71fdea6943b8bfbdf6a"
+  resolved "https://registry.npmmirror.com/dompurify/download/dompurify-2.3.1.tgz#a47059ca21fd1212d3c8f71fdea6943b8bfbdf6a"
   integrity sha1-pHBZyiH9EhLTyPcf3qaUO4v732o=
 
 domutils@1.5.1:
@@ -2191,7 +2191,7 @@ makeerror@1.0.12:
 
 marked@^1.2.9:
   version "1.2.9"
-  resolved "https://registry.nlark.com/marked/download/marked-1.2.9.tgz#53786f8b05d4c01a2a5a76b7d1ec9943d29d72dc"
+  resolved "https://registry.npmmirror.com/marked/download/marked-1.2.9.tgz#53786f8b05d4c01a2a5a76b7d1ec9943d29d72dc"
   integrity sha1-U3hviwXUwBoqWna30eyZQ9Kdctw=
 
 media-typer@0.3.0:
@@ -2798,7 +2798,7 @@ strip-final-newline@^2.0.0:
 
 strip-indent@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.nlark.com/strip-indent/download/strip-indent-3.0.0.tgz?cache=0&sync_timestamp=1620053310624&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstrip-indent%2Fdownload%2Fstrip-indent-3.0.0.tgz#c32e1cee940b6b3432c771bc2c54bcce73cd3001"
+  resolved "https://registry.npmmirror.com/strip-indent/download/strip-indent-3.0.0.tgz?cache=0&sync_timestamp=1620053310624&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fstrip-indent%2Fdownload%2Fstrip-indent-3.0.0.tgz#c32e1cee940b6b3432c771bc2c54bcce73cd3001"
   integrity sha1-wy4c7pQLazQyx3G8LFS8znPNMAE=
   dependencies:
     min-indent "^1.0.0"
@@ -2904,7 +2904,7 @@ transformers@2.1.0:
 
 tweezer.js@^1.4.0:
   version "1.5.0"
-  resolved "https://registry.nlark.com/tweezer.js/download/tweezer.js-1.5.0.tgz#ca50ac5215022203fd3be4d28617e8e2305f5c0c"
+  resolved "https://registry.npmmirror.com/tweezer.js/download/tweezer.js-1.5.0.tgz#ca50ac5215022203fd3be4d28617e8e2305f5c0c"
   integrity sha1-ylCsUhUCIgP9O+TShhfo4jBfXAw=
 
 type-detect@4.0.8:
