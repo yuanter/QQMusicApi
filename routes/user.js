@@ -17,16 +17,17 @@ const user = {
         errMsg: '未登陆'
       })
     }
+	const param = {
+			"musicid": uin,
+			"musickey": qqmusic_key || qm_keyst,
+			"openid" : "",
+			"refresh_token" : psrf_qqrefresh_token
+		}
     const data = {
         "WXLoginByToken": {
             "method": "QQLogin",
             "module": "music.login.LoginServer",
-            "param": {
-                "musicid": uin,
-                "musickey": qqmusic_key || qm_keyst,
-                "openid" : "",
-                "refresh_token" : psrf_qqrefresh_token
-            }
+            "param": JSON.stringify(param)
         },
         "comm": {
             "guid" : guid,
