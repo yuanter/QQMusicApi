@@ -10,7 +10,7 @@ const user = {
   },
 
   '/refresh': async ({req, res, request}) => {
-    const {uin, qm_keyst, qqmusic_key} = req.cookies
+    const {uin, qm_keyst, qqmusic_key, guid, refresh_key} = req.cookies
     if (!uin || !(qm_keyst || qqmusic_key)) {
       return res.send({
         result: 301,
@@ -18,24 +18,27 @@ const user = {
       })
     }
     const data = {
-      req1: {
-        module: "QQConnectLogin.LoginServer",
-        method: "QQLogin",
-        param: {
-          expired_in: 7776000, //不用管
-          // onlyNeedAccessToken: 0, //不用管
-          // forceRefreshToken: 0, //不用管
-          // access_token: "6B0C62126368CA1ACE16C932C679747E", //access_token
-          // refresh_token: "25BACF1650EE2592D06BCC19EEAD7AD6", //refresh_token
-          musicid: uin, //uin或者web_uin 微信没试过
-          musickey: qm_keyst || qqmusic_key, //key
+        "WXLoginByToken": {
+            "method": "Login",
+            "module": "music.login.LoginServer",
+            "param": {
+                "musicid": uin,
+                "musickey": qqmusic_key || qm_keyst,
+                "openid" : "",
+                "refresh_token" : refresh_key
+            }
         },
-      },
-    };
+        "comm": {
+            "guid" : guid,
+            "tmeLoginType": 1
+        }
+    }
     const sign = getSign(data);
     let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
       JSON.stringify(data)
     )}`;
+	//let url = `https://u.y.qq.com/cgi-bin/musicu.fcg`;
+	
 
     const result = await request({url})
 
