@@ -11,7 +11,7 @@ const user = {
 
   '/refresh': async ({req, res, request}) => {
     const {uin, qm_keyst, qqmusic_key, guid, psrf_qqrefresh_token} = req.cookies
-    if (!uin || !(qm_keyst || qqmusic_key)) {
+    if (!uin || !psrf_qqrefresh_token || !(qm_keyst || qqmusic_key)) {
       return res.send({
         result: 301,
         errMsg: '未登陆'
@@ -41,22 +41,7 @@ const user = {
 
     const result = await request({
       url: url,
-      data: {
-			WXLoginByToken: {
-				method: "QQLogin",
-				module: "music.login.LoginServer",
-				param: {
-					musicid: uin,
-					musickey: qqmusic_key || qm_keyst,
-					openid : "",
-					refresh_token : psrf_qqrefresh_token
-				}
-			},
-			comm: {
-				guid : guid,
-				tmeLoginType: 1
-			}
-		},
+      data: data,
 	  method: 'post',
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
