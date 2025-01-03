@@ -10,7 +10,7 @@ const user = {
   },
 
   '/refresh': async ({req, res, request}) => {
-    const {uin, qm_keyst, qqmusic_key, guid, psrf_qqrefresh_token} = req.cookies
+    const {uin, qm_keyst, qqmusic_key, guid, refresh_key} = req.cookies
     if (!uin || !(qm_keyst || qqmusic_key)) {
       return res.send({
         result: 301,
@@ -25,7 +25,7 @@ const user = {
                 musicid: uin,
                 musickey: qqmusic_key || qm_keyst,
                 openid : "",
-                refresh_token : psrf_qqrefresh_token
+                refresh_token : refresh_key
             }
         },
         comm: {
