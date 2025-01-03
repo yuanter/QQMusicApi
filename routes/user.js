@@ -34,10 +34,10 @@ const user = {
         }
     }
     const sign = getSign(data);
-    let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
-      JSON.stringify(data)
-    )}`;
-
+    //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
+    //  JSON.stringify(data)
+    //)}`;
+	let url = `https://u.y.qq.com/cgi-bin/musicu.fcg`;
 
     const result = await request({
       url: url,
