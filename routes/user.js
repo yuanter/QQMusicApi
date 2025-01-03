@@ -44,7 +44,7 @@ const user = {
     const result = await request({
       url: url,
       data: data,
-	  method:`POST`,
+	  method: 'post',
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
