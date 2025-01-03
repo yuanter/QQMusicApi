@@ -59,7 +59,8 @@ const user = {
     }
     return res.send({
       result: 200,
-      errMsg: '刷新失败，建议重新设置cookie'
+      errMsg: '刷新失败，建议重新设置cookie',
+	  data: result,
     })
   },
 
