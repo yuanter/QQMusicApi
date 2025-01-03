@@ -41,7 +41,8 @@ const user = {
     const result = await request({
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
 	  method: 'post',
-      data: data,
+	  json: true,
+	  body: JSON.stringify(data),
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
