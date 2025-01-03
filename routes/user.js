@@ -18,19 +18,19 @@ const user = {
       })
     }
     const data = {
-        "WXLoginByToken": {
-            "method": "Login",
-            "module": "music.login.LoginServer",
-            "param": {
-                "musicid": uin,
-                "musickey": qqmusic_key || qm_keyst,
-                "openid" : "",
-                "refresh_token" : refresh_key
+        WXLoginByToken: {
+            method: "Login",
+            module: "music.login.LoginServer",
+            param: {
+                musicid: uin,
+                musickey: qqmusic_key || qm_keyst,
+                openid : "",
+                refresh_token : refresh_key
             }
         },
-        "comm": {
-            "guid" : guid,
-            "tmeLoginType": 1
+        comm: {
+            guid : guid,
+            tmeLoginType: 1
         }
     }
     const sign = getSign(data);
@@ -42,7 +42,10 @@ const user = {
     const result = await request({
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8`,
       data: data,
-	  method:`POST`
+	  method:`POST`,
+	  headers = {
+		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin}`
+	  }
     })
 
     if (result.req1 && result.req1.data && result.req1.data.musickey) {
