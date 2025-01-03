@@ -47,10 +47,6 @@ const user = {
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
 	  method: 'POST',
       data: data,
-	  headers: {
-		'Content-Type': 'application/json',
-		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
-	  }
     };
     const result = await request(requestData)
 	console.log(requestData);
