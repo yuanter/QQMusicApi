@@ -43,7 +43,7 @@ const user = {
     //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
     //  JSON.stringify(data)
     //)}`;
-	const reqData = {
+	const requestData = {
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
 	  method: 'POST',
       data: data,
@@ -51,8 +51,8 @@ const user = {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
     };
-    const result = await request(reqData)
-	console.log(reqData);
+    const result = await request(requestData)
+	console.log(JSON.stringify(requestData));
 	console.log(result);
 	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
