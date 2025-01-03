@@ -43,7 +43,7 @@ const user = {
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8`,
       data: data,
 	  method:`POST`,
-	  headers = {
+	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin}`
 	  }
     })
