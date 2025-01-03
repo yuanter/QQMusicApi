@@ -37,21 +37,16 @@ const user = {
     //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
     //  JSON.stringify(data)
     //)}`;
-
-    const result = await request({
+	const reqData = {
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
 	  method: 'POST',
-	  json: true,
-	  body: JSON.stringify(data),
+      data: data,
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
-	}, function(error, response, body) {
-		if (!error) {
-			console.log(body) // 请求成功的处理逻辑
-		}
-	})
-	
+    };
+    const result = await request(reqData)
+	console.log(reqData);
 	console.log(result);
 	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
