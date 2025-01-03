@@ -40,13 +40,18 @@ const user = {
 
     const result = await request({
       url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
-	  method: 'post',
+	  method: 'POST',
 	  json: true,
 	  body: JSON.stringify(data),
 	  headers: {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
-    })
+	}, function(error, response, body) {
+		if (!error) {
+			console.log(body) // 请求成功的处理逻辑
+		}
+	})
+	
 	console.log(result);
 	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
