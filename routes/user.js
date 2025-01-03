@@ -46,7 +46,8 @@ const user = {
 		Cookie: `qqmusic_key=${qqmusic_key}; qqmusic_uin=${uin};`
 	  }
     })
-
+	console.log(result);
+	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
       const musicKey = result.WXLoginByToken.data.musickey;
       ['qm_keyst', 'qqmusic_key'].forEach((k) => {
