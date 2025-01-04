@@ -27,12 +27,7 @@ const user = {
             "WXLoginByToken": {
             "method": "QQLogin",
             "module": "music.login.LoginServer",
-            "param": {
-                "musicid": uin,
-                "musickey": qqmusic_key || qm_keyst,
-                "openid" : "",
-                "refresh_token" : psrf_qqrefresh_token
-            }
+            "param":JSON.stringify(param)
         },
         "comm": {
             "guid" : guid,
@@ -46,7 +41,7 @@ const user = {
     const requestData = {
         url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
         method: 'POST',
-        data: JSON.stringify(data),
+        data: data,
     };
     const result = await request(requestData)
     console.log(requestData);
