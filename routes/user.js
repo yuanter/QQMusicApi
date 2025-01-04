@@ -17,22 +17,22 @@ const user = {
         errMsg: '未登陆'
       })
     }
-	const param = {
-			"musicid": uin,
-			"musickey": qqmusic_key || qm_keyst,
-			"openid" : "",
-			"refresh_token" : psrf_qqrefresh_token
-		}
+    const param = {
+            "musicid": uin,
+            "musickey": qqmusic_key || qm_keyst,
+            "openid" : "",
+            "refresh_token" : psrf_qqrefresh_token
+        }
     const data = {
-        "WXLoginByToken": {
+            "WXLoginByToken": {
             "method": "QQLogin",
             "module": "music.login.LoginServer",
             "param": {
-				"musicid": uin,
-				"musickey": qqmusic_key || qm_keyst,
-				"openid" : "",
-				"refresh_token" : psrf_qqrefresh_token
-			}
+                "musicid": uin,
+                "musickey": qqmusic_key || qm_keyst,
+                "openid" : "",
+                "refresh_token" : psrf_qqrefresh_token
+            }
         },
         "comm": {
             "guid" : guid,
@@ -43,13 +43,13 @@ const user = {
     //let url = `https://u6.y.qq.com/cgi-bin/musics.fcg?sign=${sign}&format=json&inCharset=utf8&outCharset=utf-8&data=${encodeURIComponent(
     //  JSON.stringify(data)
     //)}`;
-	const requestData = {
-      url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
-	  method: 'POST',
-      data: data,
+    const requestData = {
+        url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
+        method: 'POST',
+        data: data,
     };
     const result = await request(requestData)
-	console.log(requestData);
+    console.log(requestData);
 	
     if (result.WXLoginByToken && result.WXLoginByToken.data && result.WXLoginByToken.data.musickey) {
       const musicKey = result.WXLoginByToken.data.musickey;
