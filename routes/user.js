@@ -46,7 +46,7 @@ const user = {
     const requestData = {
         url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
         method: 'POST',
-        data: data,
+        data: JSON.stringify(data),
     };
     const result = await request(requestData)
     console.log(requestData);
