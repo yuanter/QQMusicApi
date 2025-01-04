@@ -46,6 +46,9 @@ const user = {
     const requestData = {
         url: `https://u.y.qq.com/cgi-bin/musicu.fcg`,
         method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
         data: {
             "WXLoginByToken": {
                 "method": "QQLogin",
